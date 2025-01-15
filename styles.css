@@ -1,0 +1,558 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: fle;
+}
+
+
+.body {
+    color: #2b1d0f;
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.header nav {
+    background-color: gold;
+    /* color:  rgb(252, 139, 14); */
+    color: #614122;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+
+}
+
+.header nav h1 {
+    font-size: 26px;
+    font-weight: 26px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* header nav form */
+.form {
+    display: flex;
+    justify-content: center;
+}
+
+.form input[type="text"] {
+    flex-grow: 1;
+    margin-right: 10px;
+
+
+}
+
+/* we can also declare the below one in this way- form input[type="text"] */
+.form input,
+.button {
+    border: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 4px;
+
+}
+
+#theme-toggle {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    border: none;
+    margin-top: 6px;
+}
+
+.moon {
+    background-color: white;
+    border-radius: 60px;
+    margin-right: 20px;
+    height: 35px;
+    width: 35px;
+    fill: orange;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+
+    &:hover {
+        fill: white;
+        cursor: pointer;
+
+        background-color: rgb(59, 20, 213);
+        /* rgb(40, 25, 3) */
+        outline: solid 2px white;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    &:active {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        outline: 2px solid rgb(59, 20, 213);
+        outline-offset: 1px;
+        /* box-shadow: 0 0 15px rgb(59, 20, 213); */
+
+
+    }
+}
+
+.sun {
+    display: none;
+
+}
+
+
+body.dark {
+    color: rgb(255, 255, 255);
+    background-color: black;
+
+    header nav {
+        background-color: gold;
+        /* color: white; */
+        color: #614122;
+    }
+
+
+    #search {
+
+        background-color: black;
+        color: rgb(252, 139, 14);
+        border-radius: 16px;
+        margin-right: 20px;
+
+        &:hover {
+
+            cursor: pointer;
+            color: black;
+            background-color: rgb(255, 148, 25);
+            outline: solid 2px black;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        &:active {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+            outline: 2px solid goldenrod;
+            outline-offset: 1px;
+
+        }
+    }
+
+    .recipe {
+
+
+        cursor: pointer;
+
+        overflow: hidden;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        border: 6px solid gold;
+        border-radius: 6px;
+        box-shadow: 0;
+        max-width: 400px;
+        margin-top: 20px;
+        place-content: center;
+
+
+
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        will-change: transform, box-shadow;
+        /* Optimize for performance */
+
+        &:hover {
+            transform: translateY(-10px);
+            /* Move the card upward */
+            box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.4);
+            /* Enhance shadow for depth */
+
+            transition: border-color background-color 0.2s ease-in;
+            border-color: white;
+            background-color: gold;
+            color: #614122;
+        }
+
+        button {
+            height: 60px;
+            border: 2px solid;
+            border: none;
+            background-color: rgb(252, 139, 14);
+            color: black;
+            font-size: large;
+            font-family: cursive;
+            border-radius: 16px;
+
+        }
+
+
+    }
+
+
+    .recipe-details {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        background-color: black;
+        border: 10px solid gold;
+        border-radius: 16px;
+        width: 80%;
+        height: 60%;
+        font-size: 20px;
+        background-size: auto;
+        transition: all 0.5s ease-in-out;
+        overflow-y: scroll;
+
+
+    }
+
+}
+
+#search,
+.button {
+
+    border-radius: 16px;
+    margin-right: 20px;
+    color: white;
+    background-color: rgb(252, 139, 14);
+
+
+    &:hover {
+
+        cursor: pointer;
+        background-color: white;
+        color: rgb(252, 139, 14);
+
+
+        /* outline: solid 2px rgb(252, 139, 14); */
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    &:active {
+        box-shadow: 0 2px 5px rgba(253, 158, 49, 0.2);
+        outline-offset: 1px;
+        outline: solid 2px rgb(252, 139, 14);
+
+    }
+}
+
+.sun {
+    background-color: black;
+    border-radius: 60px;
+    margin-right: 2px;
+    height: 35px;
+    width: 35px;
+    fill: orange;
+    /* Changes the main sun color */
+    stroke: red;
+    /* Changes the color of lines or rays */
+
+
+
+
+    &:hover {
+
+        cursor: pointer;
+        fill: yellow;
+        stroke: red;
+        background-color: rgb(55, 190, 244);
+        /* rgb(40, 25, 3) */
+        outline: solid 2px white;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    &:active {
+
+        outline: 2px solid rgb(55, 190, 244);
+        outline-offset: 2px;
+
+
+
+    }
+
+    .recipe-details::-webkit-scrollbar-thumb {
+        background: rgb(252, 139, 14);
+        /* background:rgb(252, 139, 14) ; */
+        border-radius: 16px;
+        -webkit-border-radius: 16px;
+        /*  we are here using border radius but if we make scrollbar for body we won't be using a scroll bar */
+    }
+}
+
+.recipe {
+
+
+    cursor: pointer;
+
+    overflow: hidden;
+    background-color: gold;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    border: 6px solid gold;
+    border-radius: 6px;
+    box-shadow: 0;
+    max-width: 400px;
+    margin-top: 20px;
+    place-content: center;
+
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform, box-shadow;
+    /* Optimize for performance */
+
+    &:hover {
+        transform: translateY(-10px);
+        /* Move the card upward */
+        border: 6px solid rgb(252, 139, 14);
+        box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.4);
+        /* Enhance shadow for depth */
+    }
+
+
+    /* &:active{
+         border: 6px solid orange;
+         transition: border-color 0.3s ease;
+     } */
+    h3 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 20px;
+        margin: 5px 0;
+    }
+
+    button {
+        margin: 5px;
+        height: 60px;
+
+        width: 200px;
+        border: 2px solid;
+        border: none;
+        background-color: rgb(252, 139, 14);
+        color: white;
+        border-radius: 6px;
+        font-size: large;
+        font-family: cursive;
+        align-self: center;
+
+        &:active {
+            box-shadow: 0 2px 5px rgba(253, 158, 49, 0.2);
+            outline: 2px solid golden;
+            outline-offset: 1px;
+            outline: solid 2px white;
+
+        }
+    }
+
+
+
+
+
+}
+
+
+
+img {
+    border-radius: 6px;
+
+}
+
+
+.recipe-container {
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 40px;
+    /* content-overflow: hidden; */
+
+    margin-top: 100px;
+
+}
+
+/* responsive code  */
+@media screen and (max-width:800px) {
+
+    header nav {
+        flex-direction: column;
+
+    }
+
+    header nav form {
+        width: 80px;
+        margin-top: 20px;
+    }
+}
+
+/* make your code responsive
+make the dark mode work */
+
+.recipe-details {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    /* background-color: gold; */
+    background-color: gold;
+    border: 10px solid rgb(252, 139, 14);
+    border-radius: 16px;
+    width: 80%;
+    height: 60%;
+    font-size: 20px;
+    background-size: auto;
+    transition: all 0.5s ease-in-out;
+    overflow-y: scroll;
+
+
+}
+
+.recipe-details-content {
+
+    padding: 30px;
+}
+
+.recipeName {
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.ingredientList {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.recipe-close-btn {
+
+    background-color: rgb(255, 0, 0);
+    border: none;
+    font-size: 18px;
+    padding: 9px;
+    Position: absolute;
+    Top: 2px;
+    right: 3px
+}
+
+.recipe-close-btn:active {
+
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(253, 158, 49, 0.2);
+    outline-offset: 1px;
+    outline: solid 3px #fff;
+    transform: 2px 2s ease-in;
+
+}
+
+/*  adding scrollbar to a popup */
+
+.recipe-details::-webkit-scrollbar {
+    width: 10px;
+
+}
+
+.recipe-details::-webkit-scrollbar-thumb {
+    background: #614122;
+    /* background:rgb(252, 139, 14) ; */
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    /*  we are here using border radius but if we make scrollbar for body we won't be using a scroll bar */
+}
+
+.recipeInstructions {
+    line-height: 30px;
+    white-space: pre-line;
+
+
+
+
+}
+
+.recipeName,
+.ingredientList,
+.recipeInstructions {
+    margin-bottom: 10px;
+}
+
+
+
+body::-webkit-scrollbar {
+    width: 15px;
+
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgb(252, 139, 14);
+
+
+    /*  we are here using border radius but if we make scrollbar for body we won't be using a scroll bar */
+}
+
+body::-webkit-scrollbar-track {
+    background: #e7bf98;
+}
+
+/* Add this to your stylesheet */
+
+/* For smaller screens (e.g., phones and tablets) */
+@media (max-width: 168px) {
+    .recipe-details-content {
+        width: 90%;
+        /* Ensure it takes up 90% of the screen width */
+        max-width: 400px;
+        /* Maximum width for readability */
+        min-width: 300px;
+        /* Prevent it from becoming too small */
+        margin: 0 auto;
+        /* Center the block */
+        padding: 15px;
+        /* Add padding for a neat look */
+        box-sizing: border-box;
+        /* Include padding in width */
+    }
+}
+/* 
+@media(max-width:412px){
+    .header nav{
+        display:flex ;
+    
+
+    }
+
+} */
+
+@media screen and (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .search-bar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+  
+    .search-bar input {
+      width: calc(100% - 100px); /* Adjust the width based on button size */
+    }
+  
+    .search-bar button {
+      width: 80px;
+      flex-shrink: 0;
+    }
+  
+    .moon-icon {
+      align-self: flex-end;
+    }
+  }
